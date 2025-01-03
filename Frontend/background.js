@@ -1,5 +1,5 @@
-// Import TensorFlow.js
-importScripts('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js');
+// Import local TensorFlow.js
+importScripts('lib/tensorflow.min.js');
 
 // Global variables
 let model = null;
@@ -17,7 +17,6 @@ async function loadModel() {
 // Feature extraction function
 async function extractFeatures(url) {
     // TODO: Implement feature extraction similar to training phase
-    // This will need to match the preprocessing done during training
     return [];
 }
 
@@ -36,6 +35,16 @@ async function predictURL(url) {
         return null;
     }
 }
+
+// Listen for messages from popup and content scripts
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'analyzeURL') {
+        predictURL(request.url).then(prediction => {
+            sendResponse({ prediction: prediction ? prediction.dataSync()[0] : null });
+        });
+        return true; // Will respond asynchronously
+    }
+});
 
 // Listen for navigation events
 chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
