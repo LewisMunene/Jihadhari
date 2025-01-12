@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jihadhari</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .safe {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .danger {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .loading {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Jihadhari Security Scanner</h2>
+    <div id="status" class="status loading">
+        Analyzing current page...
+    </div>
+    <div id="details">
+        <p>URL: <span id="current-url"></span></p>
+        <p>Threat Score: <span id="threat-score">-</span></p>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
