@@ -1,4 +1,8 @@
 # Jihadhari - Malicious URL Detection System
+![image](https://github.com/user-attachments/assets/a9d0a750-957c-451a-8a98-3b17212d939b)
+![image](https://github.com/user-attachments/assets/3c73169d-c8f0-4d94-a974-8ca161305c0b)
+
+
 
 A web-based application that uses machine learning to detect and analyze potentially malicious URLs in real-time.
 
